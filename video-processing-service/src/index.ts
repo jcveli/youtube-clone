@@ -1,4 +1,3 @@
-import { error } from "console";
 import express from "express";
 import ffmpeg from "fluent-ffmpeg";
 
@@ -20,7 +19,7 @@ app.post("/process-video", (req, res) => {
     ffmpeg(inputFilePath)
         .outputOptions("-vf", "scale=-1:360") //video resolution 360p 
         .on("end", () =>{
-            res.status(200).send("Video Processing finished Successfully.");
+            res.status(200).send("Video processing finished successfully.");
         })
         .on("error", (err) =>{
             console.log(`An error occured: ${err.message}`);
